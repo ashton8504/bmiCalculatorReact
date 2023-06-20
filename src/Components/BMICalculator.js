@@ -17,48 +17,53 @@ export default function BMICalculator() {
   
   
   return (
-    <div className="bmi-form">
+      <div className="bmi-form">
+          {/* Feet Section */}
       <h2 className="input-header">Enter your height:</h2>
+            <div className="input-container">
+                <label className="input-label">Feet:</label>
+                <input
+                className="height-feet-input"
+                type="number"
+                placeholder="Feet"
+                value={heightFeet}
+                onChange={(e) => setHeightFeet(e.target.value)}
+                name="height-feet"
+                id="height-feet-input"
+                />
+          </div>
+          {/* Inches Section */}
       <div className="input-container">
-        <label className="input-label">Feet:</label>
-        <input
-          className="height-feet-input"
-          type="number"
-          placeholder="Feet"
-          value={heightFeet}
-          onChange={(e) => setHeightFeet(e.target.value)}
-          name="height-feet"
-          id="height-feet-input"
-        />
-      </div>
-      <div className="input-container">
-        <label className="input-label">Inches:</label>
-        <input
-          className="height-inches-input"
-          type="number"
-          placeholder="Inches"
-          value={heightInches}
-          onChange={(e) => setHeightInches(e.target.value)}
-          name="height-inches"
-          id="height-inches-input"
-        />
-      </div>
+            <label className="input-label">Inches:</label>
+            <input
+                className="height-inches-input"
+                type="number"
+                placeholder="Inches"
+                value={heightInches}
+                onChange={(e) => setHeightInches(e.target.value)}
+                name="height-inches"
+                id="height-inches-input"
+            />
+          </div>
+          {/* Weight Section */}
       <h2 className="input-header">Enter your weight:</h2>
       <div className="input-container">
-        <label className="input-label">Pounds:</label>
-        <input
-          className="weight-pounds-input"
-          type="number"
-          placeholder="Pounds"
-          value={weightPounds}
-          onChange={(e) => setWeightPounds(e.target.value)}
-          name="weight-pounds"
-          id="weight-pounds-input"
-        />
-      </div>
+            <label className="input-label">Pounds:</label>
+            <input
+                className="weight-pounds-input"
+                type="number"
+                placeholder="Pounds"
+                value={weightPounds}
+                onChange={(e) => setWeightPounds(e.target.value)}
+                name="weight-pounds"
+                id="weight-pounds-input"
+            />
+        </div>
+          
       <button className="calculate-button" onClick={calculateBMI}>
         Calculate BMI
-      </button>
+        </button>
+          
     </div>
   );
 }
