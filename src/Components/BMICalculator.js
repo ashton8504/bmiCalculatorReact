@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
-export default function BMICalculator({ heightFeet, heightInches, weightPounds }) {
-  const [feet, setFeet] = useState(heightFeet || 0);
-  const [inches, setInches] = useState(heightInches || 0);
-  const [pounds, setPounds] = useState(weightPounds || 0);
+export default function BMICalculator() {
+  const [feet, setFeet] = useState("");
+  const [inches, setInches] = useState("");
+  const [pounds, setPounds] = useState("");
   const [bmi, setBMI] = useState(null); // State to store the calculated BMI
 
   const calculateBMI = () => {
@@ -13,6 +13,15 @@ export default function BMICalculator({ heightFeet, heightInches, weightPounds }
 
     const calculatedBMI = weightInKg / (heightInMeters * heightInMeters);
     setBMI(calculatedBMI); // Update the state with the calculated BMI
+    setFeet("");
+    setInches("");
+    setPounds("");
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      calculateBMI();
+    }
   };
 
   return (
@@ -26,6 +35,7 @@ export default function BMICalculator({ heightFeet, heightInches, weightPounds }
           placeholder="Feet"
           value={feet}
           onChange={(e) => setFeet(e.target.value)}
+          onKeyDown={handleKeyDown}
           name="height-feet"
           id="height-feet-input"
         />
@@ -38,6 +48,7 @@ export default function BMICalculator({ heightFeet, heightInches, weightPounds }
           placeholder="Inches"
           value={inches}
           onChange={(e) => setInches(e.target.value)}
+          onKeyDown={handleKeyDown}
           name="height-inches"
           id="height-inches-input"
         />
@@ -51,6 +62,7 @@ export default function BMICalculator({ heightFeet, heightInches, weightPounds }
           placeholder="Pounds"
           value={pounds}
           onChange={(e) => setPounds(e.target.value)}
+          onKeyDown={handleKeyDown}
           name="weight-pounds"
           id="weight-pounds-input"
         />

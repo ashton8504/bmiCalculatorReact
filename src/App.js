@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import BMICalculator from "./Components/BMICalculator";
-
 import "./index.css";
 
 function App() {
@@ -15,7 +14,6 @@ function App() {
       <div className="center-container">
         <h1 className="header--title">React BMI Calculator</h1>
         <BMICalculator onCalculate={calculateBMI} />
-    
       </div>
     </div>
   );
